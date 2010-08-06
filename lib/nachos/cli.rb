@@ -11,7 +11,7 @@ class Nachos::CLI < Thor
     shell.say <<-EOL
 You are running Nachos #{Nachos::VERSION} as #{github_user}.
 #{github_summary}
-Current configuration: #{config}
+Current configuration: #{config_msg}
 EOL
   end
   
@@ -31,14 +31,22 @@ EOL
     end
   end
 
+  def config
+    config_path.exist? ? load_config : default_config
+  end
+  
   private
+  
+  def config_msg
+    config_path.exist? ? load_config : "No config found - run nachos config to create one"    
+  end
   
   def github_summary
     "You have #{github.watched.size} watched repos, and #{github.client.list_repos.size} owned repos."
   end
   
-  def config
-    config_path.exist? ? load_config : "No config found - run nachos config to create one"
+  def default_config
+    @default_config ||= Hashie::Mash.new("repo_root" => "#{ENV["HOME"]}/src")
   end
 
   def config_path
@@ -70,7 +78,8 @@ EOL
       abort("** No GitHub token set. See #{LGHCONF}")
     end
   end
-
   
-
+  def repo_root
+    Pathname(config.repo_root)
+  end
 end

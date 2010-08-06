@@ -27,6 +27,20 @@ describe Nachos::CLI do
     Nachos::CLI.start(["watched"])
   end
   
+  describe "repo_root" do
+  
+    it "prefers configured path" do
+      cli = Nachos::CLI.new
+      cli.config.repo_root = "/here/is/configured/path"
+      cli.send(:repo_root).should == Pathname("/here/is/configured/path")
+    end
+
+    it "uses default path if not otherwise configured" do 
+      cli = Nachos::CLI.new
+      cli.send(:repo_root).should == Pathname(ENV["HOME"]).join("src")
+    end
+  end
+  
   describe "info" do
     before do
       Thor::Base.shell = FakeShell
@@ -47,6 +61,12 @@ describe Nachos::CLI do
       cli.stubs(:github_summary).returns("You have n repos...")
       cli.invoke(:info)
       cli.shell.output.should include("No config found - run nachos config to create one")
+    end
+  end
+  
+  describe "config" do
+    it "uses 'nil' config if no config found" do
+      Nachos::CLI.new.send(:config).anything.should == nil
     end
   end
 end
