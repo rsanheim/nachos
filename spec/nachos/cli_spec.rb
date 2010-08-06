@@ -31,7 +31,7 @@ describe Nachos::CLI do
   
     it "prefers configured path" do
       cli = Nachos::CLI.new
-      cli.config.repo_root = "/here/is/configured/path"
+      cli.send(:config).repo_root = "/here/is/configured/path"
       cli.send(:repo_root).should == Pathname("/here/is/configured/path")
     end
 

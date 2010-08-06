@@ -31,11 +31,11 @@ EOL
     end
   end
 
+  private
+  
   def config
     config_path.exist? ? load_config : default_config
   end
-  
-  private
   
   def config_msg
     config_path.exist? ? load_config : "No config found - run nachos config to create one"    
