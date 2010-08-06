@@ -1,6 +1,7 @@
 class Nachos::CLI < Thor
 
   attr_reader :main
+  class_option :dry_run, :type => :boolean, :default => false, :desc => "If specified, the converter will just print the commands and not actually execute them"
   
   def initialize(*args)
     @main = Nachos::Main.new
@@ -35,12 +36,28 @@ EOL
     shell.say "About to sync #{repos.size} repositories"
     Dir.chdir(main.config.repo_root) do
       repos.each do |repo|
-        system Hub("clone #{repo.url}").command
+        run Hub("clone #{repo.url} #{repo.owner}-#{repo.name}").command
       end
     end
   end
 
   private
+  
+  def Hub(args)
+    Hub::Runner.new(*args.split(' '))
+  end
+  
+  def dry_run?
+    options[:dry_run]
+  end
+  
+  def run(cmd)
+    if dry_run?
+      shell.say cmd
+    else
+      system cmd
+    end
+  end
   
   def github_summary
     "You have #{github.watched.size} watched repos, and #{github.client.list_repos.size} owned repos."
