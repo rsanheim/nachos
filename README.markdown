@@ -1,14 +1,21 @@
-= nachos
+Nachos
+================================
 
-Description goes here.
+Because everyone loves Nachos!
 
-== Workflow
+Sync your watched repos with Github.
+
+And more.
+
+Workflow
+================================
 
 * watch a project on github
 * run 'nachos sync'
 * magic - it is now up to date in your local repo and ready to go
 
-== Note on Patches/Pull Requests
+Note on Patches/Pull Requests
+================================
  
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -18,6 +25,6 @@ Description goes here.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
-
+Copyright
+--------------------------------
 Copyright (c) 2010 Rob Sanheim. See LICENSE for details.
