@@ -4,6 +4,7 @@ require "thor"
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 
 require 'nachos/version'
+require 'nachos/main'
 require 'nachos/cli'
 require 'nachos/github'
 

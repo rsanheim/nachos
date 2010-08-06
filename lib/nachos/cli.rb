@@ -1,5 +1,12 @@
 class Nachos::CLI < Thor
 
+  attr_reader :main
+  
+  def initialize(*args)
+    @main = Nachos::Main.new
+    super
+  end
+  
   LGHCONF = "http://github.com/guides/local-github-config"
   GIT_CONFIG = Hash.new do |cache, cmd|
     result = %x{git #{cmd}}.chomp
@@ -11,7 +18,7 @@ class Nachos::CLI < Thor
     shell.say <<-EOL
 You are running Nachos #{Nachos::VERSION} as #{github_user}.
 #{github_summary}
-Current configuration: #{config_msg}
+Current configuration: #{main.display_config}
 EOL
   end
   
@@ -33,28 +40,8 @@ EOL
 
   private
   
-  def config
-    config_path.exist? ? load_config : default_config
-  end
-  
-  def config_msg
-    config_path.exist? ? load_config : "No config found - run nachos config to create one"    
-  end
-  
   def github_summary
     "You have #{github.watched.size} watched repos, and #{github.client.list_repos.size} owned repos."
-  end
-  
-  def default_config
-    @default_config ||= Hashie::Mash.new("repo_root" => "#{ENV["HOME"]}/src")
-  end
-
-  def config_path
-    Pathname(ENV["HOME"]).join(".nachos")
-  end
-
-  def load_config
-    YAML.load_file(config_path)
   end
   
   def github
@@ -79,7 +66,4 @@ EOL
     end
   end
   
-  def repo_root
-    Pathname(config.repo_root)
-  end
 end
