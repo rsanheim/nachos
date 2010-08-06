@@ -9,7 +9,7 @@ class Nachos::CLI < Thor
   desc "info", "Displays current setup for Nachos"
   def info
     shell.say <<-EOL
-You are running nachos as #{github_user}.
+You are running Nachos #{Nachos::VERSION} as #{github_user}.
 #{github_summary}
 Current configuration: #{config}
 EOL

@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'rake'
-
+require File.join(File.dirname(__FILE__), *%w[lib nachos version])
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
+    gem.version = Nachos::VERSION
     gem.name = "nachos"
     gem.summary = %Q{TODO: one-line summary of your gem}
     gem.description = %Q{TODO: longer description of your gem}

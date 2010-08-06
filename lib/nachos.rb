@@ -3,8 +3,7 @@ require "hub"
 require "thor"
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 
-class Nachos; end
-
+require 'nachos/version'
 require 'nachos/cli'
 require 'nachos/github'
 
