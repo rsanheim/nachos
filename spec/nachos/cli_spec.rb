@@ -35,8 +35,7 @@ describe Nachos::CLI do
     it "loads config and displays it, if found" do
       cli = Nachos::CLI.new
       cli.stubs(:github_summary).returns("You have n repos...")
-      cli.stubs(:config_path).returns(mock(:exist? => true))
-      cli.stubs(:load_config).returns("config here")
+      cli.stubs(:main).returns(stub(:display_config => "config here"))
       cli.invoke(:info)
       cli.shell.output.should include("Current configuration: config here")
     end

@@ -33,8 +33,10 @@ EOL
   def sync
     repos = github.watched
     shell.say "About to sync #{repos.size} repositories"
-    repos.each do |repo|
-      system Hub("clone #{repo.url}").command
+    Dir.chdir(main.config.repo_root) do
+      repos.each do |repo|
+        system Hub("clone #{repo.url}").command
+      end
     end
   end
 
