@@ -3,7 +3,7 @@ Nachos
 
 Because everyone loves Nachos!
 
-Sync your watched repos with Github.
+Sync your watched repos with Github.  Manage them and stuff.  Never leave wifi again without all the codes you care about, local.
 
 And more.
 
