@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'nachos'
+rescue LoadError => e
+  require File.join(File.dirname(__FILE__), *%w[.. lib nachos])
+end
+Nachos.execute(*ARGV)
