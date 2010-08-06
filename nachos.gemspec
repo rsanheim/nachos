@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Rob Sanheim"]
   s.date = %q{2010-08-06}
   s.default_executable = %q{nachos}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{Because everyone loves Nachos!}
   s.email = %q{rsanheim@gmail.com}
   s.executables = ["nachos"]
   s.extra_rdoc_files = [
@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
      "lib/nachos/github.rb",
      "lib/nachos/main.rb",
      "lib/nachos/version.rb",
+     "nachos.gemspec",
      "spec/nachos/cli_spec.rb",
      "spec/nachos/github_spec.rb",
      "spec/nachos_spec.rb",
@@ -43,7 +44,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{Nachos - sync and stuff with Github}
   s.test_files = [
     "spec/nachos/cli_spec.rb",
      "spec/nachos/github_spec.rb",

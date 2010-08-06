@@ -6,8 +6,8 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.version = Nachos::VERSION
     gem.name = "nachos"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Nachos - sync and stuff with Github}
+    gem.description = %Q{Because everyone loves Nachos!}
     gem.email = "rsanheim@gmail.com"
     gem.homepage = "http://github.com/rsanheim/nachos"
     gem.authors = ["Rob Sanheim"]
