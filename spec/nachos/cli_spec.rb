@@ -41,6 +41,7 @@ describe Nachos::CLI do
     end
     
     it "tells user there is no config yet" do
+      Nachos::Main.any_instance.stubs(:config_exists?).returns(false)
       Thor::Base.shell = FakeShell
       cli = Nachos::CLI.new
       cli.stubs(:github_summary).returns("You have n repos...")
