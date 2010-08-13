@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Nachos::CLI do
   it "works" do
-    Nachos::CLI.any_instance.stubs(:github_user).returns("johndoe")
+    Nachos::Main.any_instance.stubs(:github_user).returns("johndoe")
     watched_repos = []
     names = %w[zaphod matt aaron]
     3.to_i.times do |i|
@@ -29,24 +29,43 @@ describe Nachos::CLI do
   
   describe "info" do
     before do
-      Thor::Base.shell = FakeShell
+      @orig_shell, Thor::Base.shell = Thor::Base.shell, FakeShell
+    end
+
+    after do
+      Thor::Base.shell = @orig_shell
     end
       
-    it "loads config and displays it, if found" do
+    it "displays info from main" do
       cli = Nachos::CLI.new
-      cli.stubs(:github_summary).returns("You have n repos...")
-      cli.stubs(:main).returns(stub(:display_config => "config here"))
+      cli.stubs(:main).returns(mock(:info => "info here"))
       cli.invoke(:info)
-      cli.shell.output.should include("Current configuration: config here")
+      cli.shell.output.should include("info here")
+    end
+  end
+  
+  describe "sync" do
+    before do
+      @orig_shell, Thor::Base.shell = Thor::Base.shell, FakeShell
+    end
+
+    after do
+      Thor::Base.shell = @orig_shell
     end
     
-    it "tells user there is no config yet" do
-      Nachos::Main.any_instance.stubs(:config_exists?).returns(false)
-      Thor::Base.shell = FakeShell
+    it "calls sync on main" do
       cli = Nachos::CLI.new
-      cli.stubs(:github_summary).returns("You have n repos...")
-      cli.invoke(:info)
-      cli.shell.output.should include("No config found - run nachos config to create one")
+      main = stub_everything(:sync_summary => "")
+      main.expects(:sync)
+      cli.stubs(:main).returns(main)
+      cli.invoke(:sync)
+    end
+    
+    it "displays summary sync info" do
+      cli = Nachos::CLI.new
+      cli.stubs(:main).returns(stub_everything(:sync_summary => "sync summary"))
+      cli.invoke(:sync)
+      cli.shell.output.should include("sync summary")
     end
   end
 end

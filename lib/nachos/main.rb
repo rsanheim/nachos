@@ -1,32 +1,38 @@
 class Nachos
   class Main
-
-    def repo_root
-      Pathname(config.repo_root)
+    extend Forwardable
+    include Nachos::Github
+    def_delegators :cli, :shell, :dry_run?
+    attr_reader :cli, :config
+    
+    def initialize(cli)
+      @cli = cli
+      @config = Nachos::Config.new
     end
     
-    def config
-      config_exists? ? load_config : default_config
-    end
-
-    def display_config
-      config_exists? ? load_config : "No config found - run nachos config to create one"    
+    def info
+%[You are running Nachos #{Nachos::VERSION} as #{github_user}.
+#{github_summary}
+Current configuration: #{config.display_config}]
     end
     
-    def config_exists?
-      config_path.exist?
+    def sync
+      chdir config.config.repo_root do
+        watched.each do |repo|
+          git_url = repo.url.gsub("http", "git")
+          run Hub("clone #{git_url} #{repo.owner}-#{repo.name}").command
+        end
+      end
     end
     
-    def config_path
-      Pathname(ENV["HOME"]).join(".nachos")
-    end
-
-    def default_config
-      @default_config ||= Hashie::Mash.new("repo_root" => "#{ENV["HOME"]}/src")
-    end
-
-    def load_config
-      Hashie::Mash.new(YAML.load_file(config_path))
+    def chdir(dir)
+      shell.say_status :inside, dir
+      if dry_run?
+        yield
+      else
+        FileUtils.mkdir_p(dir) unless File.exist?(dir)
+        FileUtils.cd(dir) { yield }
+      end
     end
     
   end
