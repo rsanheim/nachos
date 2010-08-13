@@ -16,5 +16,14 @@ describe Nachos do
       nachos.expects(:exit).with(0)
       nachos.execute
     end
+    
+    it "can do help" do
+      begin
+        Nachos::CLI.any_instance.stubs(:shell).returns(shell = stub_everything())
+        Nachos.execute("help")
+      rescue SystemExit => e
+      end
+    end
   end
+  
 end

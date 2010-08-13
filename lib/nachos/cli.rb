@@ -22,30 +22,14 @@ class Nachos::CLI < Thor
   
   desc "sync", "Sync repositories"
   def sync
-    shell.say main.sync_summary
+    shell.say main.github_summary
     main.sync
   end
 
   private
   
-  def Hub(args)
-    Hub::Runner.new(*args.split(' '))
-  end
-  
   def dry_run?
     options[:dry_run]
-  end
-  
-  def run(cmd)
-    if dry_run?
-      say cmd
-    else
-      system cmd
-    end
-  end
-  
-  def github_summary
-    "You have #{github.watched.size} watched repos, and #{github.client.list_repos.size} owned repos."
   end
   
 end

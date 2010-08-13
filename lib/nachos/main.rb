@@ -3,6 +3,7 @@ class Nachos
     extend Forwardable
     include Nachos::Github
     def_delegators :cli, :shell, :dry_run?
+    def_delegators :config, :config
     attr_reader :cli, :config
     
     def initialize(cli)
@@ -17,11 +18,8 @@ Current configuration: #{config.display_config}]
     end
     
     def sync
-      chdir config.config.repo_root do
-        watched.each do |repo|
-          git_url = repo.url.gsub("http", "git")
-          run Hub("clone #{git_url} #{repo.owner}-#{repo.name}").command
-        end
+      chdir config.repo_root do
+        watched.each { |repo| sync_repo(repo) }
       end
     end
     
@@ -35,5 +33,37 @@ Current configuration: #{config.display_config}]
       end
     end
     
+    def sync_repo(repo)
+      git_url = repo.url.gsub("http", "git")
+      path = repo_path(repo)
+      if repo_exists?(repo)
+        chdir(path) do
+          run Hub("fetch").command
+        end
+      else
+        run Hub("clone #{git_url} #{repo.owner}-#{repo.name}").command
+      end
+    end
+    
+    def repo_path(repo)
+      Pathname(config.repo_root.join("#{repo.owner}-#{repo.name}"))
+    end
+    
+    def repo_exists?(repo)
+      repo_path(repo).directory?
+    end
+    
+    def Hub(args)
+      Hub::Runner.new(*args.split(' '))
+    end
+    
+    def run(cmd)
+      if dry_run?
+        say cmd
+      else
+        system cmd
+      end
+    end
+
   end
 end

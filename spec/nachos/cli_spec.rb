@@ -55,7 +55,7 @@ describe Nachos::CLI do
     
     it "calls sync on main" do
       cli = Nachos::CLI.new
-      main = stub_everything(:sync_summary => "")
+      main = stub_everything(:github_summary => "")
       main.expects(:sync)
       cli.stubs(:main).returns(main)
       cli.invoke(:sync)
@@ -63,7 +63,7 @@ describe Nachos::CLI do
     
     it "displays summary sync info" do
       cli = Nachos::CLI.new
-      cli.stubs(:main).returns(stub_everything(:sync_summary => "sync summary"))
+      cli.stubs(:main).returns(stub_everything(:github_summary => "sync summary"))
       cli.invoke(:sync)
       cli.shell.output.should include("sync summary")
     end

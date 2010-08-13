@@ -21,4 +21,19 @@ describe Nachos::Main do
     end
   end
 
+  describe "repo_exists?" do
+    it "returns true if dir exists" do
+      Pathname.any_instance.expects(:directory?).returns(true)
+      repo = Hashie::Mash.new(:owner => "jdoe", :name => "project")
+      main = Nachos::Main.new(Nachos::CLI.new)
+      main.repo_exists?(repo).should be_true
+    end
+    
+    it "returns false if dir does not exist" do
+      Pathname.any_instance.expects(:directory?).returns(false)
+      repo = Hashie::Mash.new(:owner => "jdoe", :name => "project")
+      main = Nachos::Main.new(Nachos::CLI.new)
+      main.repo_exists?(repo).should be_false
+    end
+  end
 end
