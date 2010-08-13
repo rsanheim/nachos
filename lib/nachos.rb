@@ -24,10 +24,6 @@ class Nachos
     new(*args).execute
   end
   
-  def runner
-    @runner ||= Runner.new
-  end
-  
   def execute
     Nachos::CLI.start
     exit 0
