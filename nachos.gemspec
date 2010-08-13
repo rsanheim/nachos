@@ -5,24 +5,25 @@
 
 Gem::Specification.new do |s|
   s.name = %q{nachos}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rob Sanheim"]
-  s.date = %q{2010-08-06}
+  s.date = %q{2010-08-13}
   s.default_executable = %q{nachos}
   s.description = %q{Because everyone loves Nachos!}
   s.email = %q{rsanheim@gmail.com}
   s.executables = ["nachos"]
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.markdown"
   ]
   s.files = [
     ".document",
      ".gitignore",
+     ".rvmrc",
      "LICENSE",
-     "README.rdoc",
+     "README.markdown",
      "Rakefile",
      "bin/nachos",
      "features/nachos.feature",
@@ -31,12 +32,15 @@ Gem::Specification.new do |s|
      "features/support/fakeweb/fakes.rb",
      "lib/nachos.rb",
      "lib/nachos/cli.rb",
+     "lib/nachos/config.rb",
      "lib/nachos/github.rb",
      "lib/nachos/main.rb",
      "lib/nachos/version.rb",
      "nachos.gemspec",
      "spec/nachos/cli_spec.rb",
+     "spec/nachos/config_spec.rb",
      "spec/nachos/github_spec.rb",
+     "spec/nachos/main_spec.rb",
      "spec/nachos_spec.rb",
      "spec/spec_helper.rb"
   ]
@@ -47,7 +51,9 @@ Gem::Specification.new do |s|
   s.summary = %q{Nachos - sync and stuff with Github}
   s.test_files = [
     "spec/nachos/cli_spec.rb",
+     "spec/nachos/config_spec.rb",
      "spec/nachos/github_spec.rb",
+     "spec/nachos/main_spec.rb",
      "spec/nachos_spec.rb",
      "spec/spec_helper.rb"
   ]
