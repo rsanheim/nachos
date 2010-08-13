@@ -14,6 +14,12 @@ Workflow
 * run 'nachos sync'
 * magic - it is now up to date in your local repo and ready to go
 
+Release
+================================
+* bump version in version.rb
+* commit and push
+* run `rake release` to tag, push, and push gem
+
 Note on Patches/Pull Requests
 ================================
  

@@ -13,7 +13,7 @@ begin
     gem.authors = ["Rob Sanheim"]
     gem.add_dependency "octopussy"
      # may want to vendor this...could conflict with the manual install folks
-    gem.add_dependency "git-hub"
+    gem.add_dependency "git-hub", "1.4.1"
     gem.add_development_dependency "rspec", "~> 2.0.0.beta.12"
     gem.add_development_dependency "faker"
     gem.add_development_dependency "mocha"

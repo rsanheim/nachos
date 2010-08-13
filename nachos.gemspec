@@ -64,14 +64,14 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<octopussy>, [">= 0"])
-      s.add_runtime_dependency(%q<git-hub>, [">= 0"])
+      s.add_runtime_dependency(%q<git-hub>, ["= 1.4.1"])
       s.add_development_dependency(%q<rspec>, ["~> 2.0.0.beta.12"])
       s.add_development_dependency(%q<faker>, [">= 0"])
       s.add_development_dependency(%q<mocha>, [">= 0"])
       s.add_development_dependency(%q<fakeweb>, [">= 0"])
     else
       s.add_dependency(%q<octopussy>, [">= 0"])
-      s.add_dependency(%q<git-hub>, [">= 0"])
+      s.add_dependency(%q<git-hub>, ["= 1.4.1"])
       s.add_dependency(%q<rspec>, ["~> 2.0.0.beta.12"])
       s.add_dependency(%q<faker>, [">= 0"])
       s.add_dependency(%q<mocha>, [">= 0"])
@@ -79,7 +79,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<octopussy>, [">= 0"])
-    s.add_dependency(%q<git-hub>, [">= 0"])
+    s.add_dependency(%q<git-hub>, ["= 1.4.1"])
     s.add_dependency(%q<rspec>, ["~> 2.0.0.beta.12"])
     s.add_dependency(%q<faker>, [">= 0"])
     s.add_dependency(%q<mocha>, [">= 0"])
