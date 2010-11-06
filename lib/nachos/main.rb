@@ -59,7 +59,7 @@ Current configuration: #{config.display_config}]
     
     def run(cmd)
       if dry_run?
-        say cmd
+        shell.say cmd
       else
         system cmd
       end
