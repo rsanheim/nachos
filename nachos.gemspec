@@ -67,6 +67,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<faker>, [">= 0"])
       s.add_development_dependency(%q<mocha>, [">= 0"])
       s.add_development_dependency(%q<fakeweb>, [">= 0"])
+      s.add_development_dependency(%q<log_buddy>, ["= 0.5.0"])
     else
       s.add_dependency(%q<octopussy>, [">= 0"])
       s.add_dependency(%q<git-hub>, ["= 1.4.1"])
@@ -74,6 +75,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<faker>, [">= 0"])
       s.add_dependency(%q<mocha>, [">= 0"])
       s.add_dependency(%q<fakeweb>, [">= 0"])
+      s.add_dependency(%q<log_buddy>, ["= 0.5.0"])
     end
   else
     s.add_dependency(%q<octopussy>, [">= 0"])
@@ -82,6 +84,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<faker>, [">= 0"])
     s.add_dependency(%q<mocha>, [">= 0"])
     s.add_dependency(%q<fakeweb>, [">= 0"])
+    s.add_dependency(%q<log_buddy>, ["= 0.5.0"])
   end
 end
-
