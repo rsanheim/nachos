@@ -15,7 +15,7 @@ RSpec.configure do |config|
   config.formatter = :documentation
   config.color_enabled = true
   config.alias_example_to :fit, :focused => true
-  config.filter_run :options => { :focused => true }
+  config.filter_run :focused => true
   config.run_all_when_everything_filtered = true
 end
 
