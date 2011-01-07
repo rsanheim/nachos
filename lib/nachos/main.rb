@@ -34,7 +34,7 @@ Current configuration: #{config.display_config}]
     end
     
     def sync_repo(repo)
-      git_url = repo.url.gsub("http", "git")
+      git_url = repo.url.gsub("https", "git")
       path = repo_path(repo)
       if repo_exists?(repo)
         chdir(path) do
