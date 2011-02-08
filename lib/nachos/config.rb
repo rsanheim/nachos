@@ -2,7 +2,7 @@ class Nachos
   class Config
 
     def repo_root
-      Pathname(config.repo_root)
+      Pathname(config.repo_root).expand_path
     end
     
     def config

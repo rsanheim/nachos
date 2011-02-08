@@ -15,6 +15,12 @@ describe Nachos::Config do
       config = Nachos::Config.new
       config.repo_root.should == Pathname(ENV["HOME"]).join("src")
     end
+    
+    it "expands a relative path" do
+      config = Nachos::Config.new
+      config.config.repo_root = "~/"
+      config.repo_root.should == Pathname("~/").expand_path
+    end
   end
 
   describe "config" do
