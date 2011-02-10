@@ -37,8 +37,8 @@ describe Nachos::CLI do
     end
       
     it "displays info from main" do
+      Nachos::CLI.any_instance.stubs(:main).returns(mock(:info => "info here"))
       cli = Nachos::CLI.new
-      cli.stubs(:main).returns(mock(:info => "info here"))
       cli.invoke(:info)
       cli.shell.output.should include("info here")
     end
