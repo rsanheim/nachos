@@ -1,32 +1,8 @@
 require 'rubygems'
 require 'rake'
 require File.join(File.dirname(__FILE__), *%w[lib nachos version])
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.version = Nachos::VERSION
-    gem.name = "nachos"
-    gem.summary = %Q{Nachos - sync and stuff with Github}
-    gem.description = %Q{Because everyone loves Nachos!}
-    gem.email = "rsanheim@gmail.com"
-    gem.homepage = "http://github.com/rsanheim/nachos"
-    gem.authors = ["Rob Sanheim"]
-    gem.add_dependency "octopussy"
-    gem.add_dependency "thor"
-    gem.add_dependency "json"
-     # may want to vendor this...could conflict with the manual install folks
-    gem.add_dependency "git-hub", "1.4.1"
-    gem.add_development_dependency "jeweler"
-    gem.add_development_dependency "rspec", "~> 2.4"
-    gem.add_development_dependency "faker"
-    gem.add_development_dependency "mocha"
-    gem.add_development_dependency "fakeweb"
-    gem.add_development_dependency "log_buddy"
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
+
+Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
 

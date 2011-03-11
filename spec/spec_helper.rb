@@ -1,13 +1,9 @@
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'nachos'
 require 'bundler/setup'
-# require 'rspec'
-# require 'fakeweb'
-# require 'faker'
-# require 'json'
-# require 'log_buddy'
-Bundler.require(:default, :development)
+Bundler.require(:development)
+
+require "json"  # not sure why this needs to be here....but it does.
+require "nachos"
+
 LogBuddy.init
 
 FakeWeb.allow_net_connect = false
