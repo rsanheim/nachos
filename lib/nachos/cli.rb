@@ -1,6 +1,6 @@
 class Nachos::CLI < Thor
 
-  attr_reader :config, :main
+  attr_reader :main
   class_option :dry_run, :type => :boolean, :default => false, :desc => "If specified, the converter will just print the commands and not actually execute them"
   
   def initialize(*args)
@@ -25,7 +25,12 @@ class Nachos::CLI < Thor
     shell.say main.github_summary
     main.sync
   end
-
+  
+  desc "config", "Create default config (if it doesn't exist)"
+  def config
+    main.config
+  end
+  
   private
   
   def dry_run?

@@ -69,4 +69,15 @@ describe Nachos::CLI do
       cli.shell.output.should include("sync summary")
     end
   end
+  
+  describe "config" do
+    it "calls config on main" do
+      main = stub_everything
+      main.expects(:config)
+      Nachos::CLI.any_instance.stubs(:main).returns(main)
+      cli = Nachos::CLI.new
+      cli.invoke(:config)
+    end
+  end
 end
+  
