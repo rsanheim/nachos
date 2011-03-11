@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rob Sanheim"]
-  s.date = %q{2011-02-10}
+  s.date = %q{2011-03-11}
   s.default_executable = %q{nachos}
   s.description = %q{Because everyone loves Nachos!}
   s.email = %q{rsanheim@gmail.com}
@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = %q{http://github.com/rsanheim/nachos}
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.6.0}
   s.summary = %q{Nachos - sync and stuff with Github}
   s.test_files = [
     "spec/nachos/cli_spec.rb",
@@ -57,22 +57,61 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<nachos>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.4"])
+      s.add_development_dependency(%q<faker>, [">= 0"])
+      s.add_development_dependency(%q<mocha>, [">= 0"])
+      s.add_development_dependency(%q<fakeweb>, [">= 0"])
+      s.add_development_dependency(%q<log_buddy>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.4"])
+      s.add_development_dependency(%q<faker>, [">= 0"])
+      s.add_development_dependency(%q<mocha>, [">= 0"])
+      s.add_development_dependency(%q<fakeweb>, [">= 0"])
+      s.add_development_dependency(%q<log_buddy>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.4"])
+      s.add_development_dependency(%q<faker>, [">= 0"])
+      s.add_development_dependency(%q<mocha>, [">= 0"])
+      s.add_development_dependency(%q<fakeweb>, [">= 0"])
+      s.add_development_dependency(%q<log_buddy>, [">= 0"])
       s.add_runtime_dependency(%q<octopussy>, [">= 0"])
       s.add_runtime_dependency(%q<thor>, [">= 0"])
+      s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_runtime_dependency(%q<git-hub>, ["= 1.4.1"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.4"])
       s.add_development_dependency(%q<faker>, [">= 0"])
       s.add_development_dependency(%q<mocha>, [">= 0"])
       s.add_development_dependency(%q<fakeweb>, [">= 0"])
       s.add_development_dependency(%q<log_buddy>, [">= 0"])
     else
+      s.add_dependency(%q<nachos>, [">= 0"])
+      s.add_dependency(%q<rspec>, ["~> 2.4"])
+      s.add_dependency(%q<faker>, [">= 0"])
+      s.add_dependency(%q<mocha>, [">= 0"])
+      s.add_dependency(%q<fakeweb>, [">= 0"])
+      s.add_dependency(%q<log_buddy>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<rspec>, ["~> 2.4"])
+      s.add_dependency(%q<faker>, [">= 0"])
+      s.add_dependency(%q<mocha>, [">= 0"])
+      s.add_dependency(%q<fakeweb>, [">= 0"])
+      s.add_dependency(%q<log_buddy>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<rspec>, ["~> 2.4"])
+      s.add_dependency(%q<faker>, [">= 0"])
+      s.add_dependency(%q<mocha>, [">= 0"])
+      s.add_dependency(%q<fakeweb>, [">= 0"])
+      s.add_dependency(%q<log_buddy>, [">= 0"])
       s.add_dependency(%q<octopussy>, [">= 0"])
       s.add_dependency(%q<thor>, [">= 0"])
+      s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<git-hub>, ["= 1.4.1"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.4"])
       s.add_dependency(%q<faker>, [">= 0"])
       s.add_dependency(%q<mocha>, [">= 0"])
@@ -80,9 +119,29 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<log_buddy>, [">= 0"])
     end
   else
+    s.add_dependency(%q<nachos>, [">= 0"])
+    s.add_dependency(%q<rspec>, ["~> 2.4"])
+    s.add_dependency(%q<faker>, [">= 0"])
+    s.add_dependency(%q<mocha>, [">= 0"])
+    s.add_dependency(%q<fakeweb>, [">= 0"])
+    s.add_dependency(%q<log_buddy>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<rspec>, ["~> 2.4"])
+    s.add_dependency(%q<faker>, [">= 0"])
+    s.add_dependency(%q<mocha>, [">= 0"])
+    s.add_dependency(%q<fakeweb>, [">= 0"])
+    s.add_dependency(%q<log_buddy>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<rspec>, ["~> 2.4"])
+    s.add_dependency(%q<faker>, [">= 0"])
+    s.add_dependency(%q<mocha>, [">= 0"])
+    s.add_dependency(%q<fakeweb>, [">= 0"])
+    s.add_dependency(%q<log_buddy>, [">= 0"])
     s.add_dependency(%q<octopussy>, [">= 0"])
     s.add_dependency(%q<thor>, [">= 0"])
+    s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<git-hub>, ["= 1.4.1"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.4"])
     s.add_dependency(%q<faker>, [">= 0"])
     s.add_dependency(%q<mocha>, [">= 0"])

@@ -13,8 +13,10 @@ begin
     gem.authors = ["Rob Sanheim"]
     gem.add_dependency "octopussy"
     gem.add_dependency "thor"
+    gem.add_dependency "json"
      # may want to vendor this...could conflict with the manual install folks
     gem.add_dependency "git-hub", "1.4.1"
+    gem.add_development_dependency "jeweler"
     gem.add_development_dependency "rspec", "~> 2.4"
     gem.add_development_dependency "faker"
     gem.add_development_dependency "mocha"
@@ -40,9 +42,9 @@ else
   task :coverage => :spec
 end
 
-task :spec => :check_dependencies
+task :spec
 
-task :default => [:check_dependencies, :coverage]
+task :default => [:coverage]
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
