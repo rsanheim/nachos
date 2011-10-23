@@ -8,19 +8,7 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:spec)
 
-if RUBY_VERSION <= "1.8.7"
-  RSpec::Core::RakeTask.new(:coverage) do |spec|
-    spec.pattern = 'spec/**/*_spec.rb'
-    spec.rcov_opts = %[-Ilib -Ispec --exclude "gems/*,/Library/Ruby/*,config/*" --text-summary  --sort coverage]
-    spec.rcov = true
-  end
-else
-  task :coverage => :spec
-end
-
-task :spec
-
-task :default => [:coverage]
+task :default => [:spec]
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
