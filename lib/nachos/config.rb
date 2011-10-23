@@ -10,7 +10,7 @@ class Nachos
     end
 
     def display_config
-      config_exists? ? load_config : "No config found - run nachos config to create one"
+      config_exists? ? load_config : "No config found - run nachos init to create one"
     end
 
     def config_exists?

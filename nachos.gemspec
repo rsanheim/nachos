@@ -25,6 +25,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency "fakeweb"
   s.add_development_dependency "log_buddy"
   s.add_development_dependency "rake"
+  s.add_development_dependency "guard"
+  s.add_development_dependency "guard-rspec"
+  s.add_development_dependency "rb-fsevent" if RUBY_PLATFORM =~ /darwin/
 
   s.add_runtime_dependency "octopussy"
   s.add_runtime_dependency "thor"

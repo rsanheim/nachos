@@ -3,6 +3,8 @@ require "spec_helper"
 describe Nachos::CLI do
   it "works" do
     Nachos::Main.any_instance.stubs(:github_user).returns("johndoe")
+    Nachos::Main.any_instance.stubs(:github_token).returns("xxxx")
+
     watched_repos = []
     names = %w[zaphod matt aaron]
     3.to_i.times do |i|
