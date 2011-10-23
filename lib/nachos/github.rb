@@ -1,5 +1,5 @@
 class Nachos
-  
+
   module Github
     LGHCONF = "http://github.com/guides/local-github-config"
     GIT_CONFIG = Hash.new do |cache, cmd|
@@ -8,7 +8,7 @@ class Nachos
     end
 
     attr_reader :client
-    
+
     def watched
       client.watched.sort_by do |repo|
         [repo["owner"], repo["name"]].join("/")
@@ -32,14 +32,14 @@ class Nachos
         abort("** No GitHub token set. See #{LGHCONF}")
       end
     end
-    
+
     def github_summary
       "You have #{watched.size} watched repos, and #{client.list_repos.size} owned repos."
     end
-    
+
     def client
       @client ||= Octopussy::Client.new(:login => github_user, :token => github_token)
     end
-    
+
   end
 end

@@ -26,7 +26,7 @@ describe Nachos::CLI do
 
     Nachos::CLI.start(["watched"])
   end
-  
+
   describe "info" do
     before do
       @orig_shell, Thor::Base.shell = Thor::Base.shell, FakeShell
@@ -35,7 +35,7 @@ describe Nachos::CLI do
     after do
       Thor::Base.shell = @orig_shell
     end
-      
+
     it "displays info from main" do
       Nachos::CLI.any_instance.stubs(:main).returns(mock(:info => "info here"))
       cli = Nachos::CLI.new
@@ -43,7 +43,7 @@ describe Nachos::CLI do
       cli.shell.output.should include("info here")
     end
   end
-  
+
   describe "sync" do
     before do
       @orig_shell, Thor::Base.shell = Thor::Base.shell, FakeShell
@@ -52,7 +52,7 @@ describe Nachos::CLI do
     after do
       Thor::Base.shell = @orig_shell
     end
-    
+
     it "calls sync on main" do
       main = stub_everything(:github_summary => "")
       main.expects(:sync)
@@ -60,7 +60,7 @@ describe Nachos::CLI do
       cli = Nachos::CLI.new
       cli.invoke(:sync)
     end
-    
+
     it "displays summary sync info" do
       main = stub_everything(:github_summary => "sync summary")
       Nachos::CLI.any_instance.stubs(:main).returns(main)
@@ -69,7 +69,7 @@ describe Nachos::CLI do
       cli.shell.output.should include("sync summary")
     end
   end
-  
+
   describe "config" do
     it "calls config on main" do
       main = stub_everything
@@ -80,4 +80,4 @@ describe Nachos::CLI do
     end
   end
 end
-  
+

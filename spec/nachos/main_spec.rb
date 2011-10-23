@@ -12,7 +12,7 @@ describe Nachos::Main do
       main.info.should include("github summary")
     end
   end
-  
+
   describe "sync" do
     it "syncs all repos" do
       main = Nachos::Main.new(Nachos::CLI.new)
@@ -28,7 +28,7 @@ describe Nachos::Main do
       main = Nachos::Main.new(Nachos::CLI.new)
       main.repo_exists?(repo).should be_true
     end
-    
+
     it "returns false if dir does not exist" do
       Pathname.any_instance.expects(:directory?).returns(false)
       repo = Hashie::Mash.new(:owner => "jdoe", :name => "project")

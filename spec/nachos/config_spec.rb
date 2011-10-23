@@ -11,11 +11,11 @@ describe Nachos::Config do
       config.repo_root.should == Pathname("/here/is/configured/path")
     end
 
-    it "uses default path if not otherwise configured" do 
+    it "uses default path if not otherwise configured" do
       config = Nachos::Config.new
       config.repo_root.should == Pathname(ENV["HOME"]).join("src")
     end
-    
+
     it "expands a relative path" do
       config = Nachos::Config.new
       config.config.repo_root = "~/"
@@ -28,12 +28,12 @@ describe Nachos::Config do
       YAML.stubs(:load_config).returns(nil)
       Nachos::Config.new.config.anything.should == nil
     end
-    
+
     it "wraps loaded yaml in a mashie thing" do
       YAML.stubs(:load_config).returns({:somethign => "foo"})
       config = Nachos::Config.new
       config.config.should be_instance_of(Hashie::Mash)
     end
   end
-  
+
 end
