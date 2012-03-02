@@ -8,9 +8,12 @@ Sync your watched repos with Github.  Manage them.  Never leave net access again
 Getting Started
 ================================
 
-* watch a project on github
-* run 'nachos sync'
-* magic - it is now up to date in your local repo and ready to go
+* Setup your local Github setup -- follow the [Github guide](http://help.github.com/set-your-user-name-email-and-github-token/)
+* Run
+
+    nachos sync
+
+Magic - it is now up to date in "~/src" (by default) and ready to go
 
 Release
 ================================
