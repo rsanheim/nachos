@@ -3,11 +3,9 @@ Nachos
 
 Because everyone loves Nachos!
 
-Sync your watched repos with Github.  Manage them and stuff.  Never leave wifi again without all the codes you care about, local.
+Sync your watched repos with Github.  Manage them.  Never leave net access again without all the codes you care about, local.
 
-And more.
-
-Workflow
+Getting Started
 ================================
 
 * watch a project on github
@@ -33,4 +31,4 @@ Note on Patches/Pull Requests
 
 Copyright
 --------------------------------
-Copyright (c) 2011 Rob Sanheim. See LICENSE for details.
+Copyright (c) 2012 Rob Sanheim. See LICENSE for details.
