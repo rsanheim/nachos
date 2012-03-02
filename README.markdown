@@ -8,12 +8,21 @@ Sync your watched repos with Github.  Manage them.  Never leave net access again
 Getting Started
 ================================
 
-* Setup your local Github setup -- follow the [Github guide](http://help.github.com/set-your-user-name-email-and-github-token/)
+* Setup your local Github setup -- follow the [Github guide](http://repohelp.github.com/set-your-user-name-email-and-github-token/)
 * Run
 
     nachos sync
 
 Magic - it is now up to date in "~/src" (by default) and ready to go
+
+Configuration
+================================
+
+By default, Nachos will place your repos into `~/src`.  You can
+configure this via the following:
+
+    #TODO implement this 
+    nachos config
 
 Release
 ================================
