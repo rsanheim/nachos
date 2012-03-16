@@ -13,19 +13,6 @@ class Nachos
 
   attr_reader :args
 
-  def initialize(*args)
-    @args = args
-  end
-
-  def self.execute(*args)
-    new(*args).execute
-  end
-
-  def execute
-    Nachos::CLI.start
-    exit 0
-  end
-
   def Hub(args)
     Hub::Runner.new(*args.split(' '))
   end

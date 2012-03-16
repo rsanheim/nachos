@@ -1,40 +1,56 @@
-class Nachos::CLI < Thor
+require 'boson'
+require 'boson/runner'
+
+class Nachos::CLI < Boson::Runner
 
   attr_reader :main
-  class_option :dry_run, :type => :boolean, :default => false, :desc => "If specified, the converter will just print the commands and not actually execute them"
 
   def initialize(*args)
     @main = Nachos::Main.new(self)
+    @options = {}
     super
   end
 
-  desc "info", "Displays current setup for Nachos"
-  def info
-    shell.say main.info
+  def self.dry_run
+    option :dry_run, :type => :boolean, :desc => "If specified, the converter will just print the commands and not actually execute them"
   end
 
-  desc "watched", "Display your watched repos on Github"
-  def watched
+  desc "Displays current setup for Nachos"
+  def info
+    say main.info
+  end
+
+  dry_run
+  desc "Display your watched repos on Github"
+  def watched(options={})
+    @options = options
     main.watched.each do |repo|
-      shell.say "#{repo.owner}/#{repo.name} - #{repo.description}"
+      say "#{repo.owner}/#{repo.name} - #{repo.description}"
     end
   end
 
-  desc "sync", "Sync repositories"
-  def sync
-    shell.say main.github_summary
+  dry_run
+  desc "Sync repositories"
+  def sync(options={})
+    @options = options
+    say main.github_summary
     main.sync
   end
 
-  desc "config", "Create default config (if it doesn't exist)"
-  def config
+  dry_run
+  desc "Create default config (if it doesn't exist)"
+  def config(options={})
+    @options = options
     main.config
   end
 
   private
+  def say(msg)
+    puts msg
+  end
 
   def dry_run?
-    options[:dry_run]
+    @options[:dry_run]
   end
 
 end

@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec", "~> 2.4"
+  s.add_development_dependency "bahia"
   s.add_development_dependency "faker"
   s.add_development_dependency "mocha"
   s.add_development_dependency "fakeweb"
@@ -30,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rb-fsevent" if RUBY_PLATFORM =~ /darwin/
 
   s.add_runtime_dependency "octopussy"
-  s.add_runtime_dependency "thor"
+  s.add_runtime_dependency "boson"
   s.add_runtime_dependency "git-hub", "1.4.1"
   # s.add_runtime_dependency %q<json>, [">= 0"])
 end

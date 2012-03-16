@@ -1,29 +1,40 @@
 require 'spec_helper'
 
 describe Nachos do
-  describe "execute" do
-    it "calls start on CLI" do
-      Nachos::CLI.expects(:start)
-
-      nachos = Nachos.new
-      nachos.stubs(:exit)
-      nachos.execute
+  def capture_stdout(&block)
+    original_stdout = $stdout
+    $stdout = fake = StringIO.new
+    begin
+      yield
+    ensure
+      $stdout = original_stdout
     end
+    fake.string
+  end
 
-    it "exits successfully" do
-      Nachos::CLI.stubs(:start)
-      nachos = Nachos.new
-      nachos.expects(:exit).with(0)
-      nachos.execute
-    end
+  def stub_github_info
+    Nachos::Main.any_instance.stubs(:github_user).returns("john-doe")
+    Nachos::Main.any_instance.stubs(:github_token).returns("xxx")
+    Nachos::Main.any_instance.stubs(:github_summary).returns("zzzz")
+  end
 
-    it "can do help" do
-      begin
-        Nachos::CLI.any_instance.stubs(:shell).returns(shell = stub_everything())
-        Nachos.execute("help")
-      rescue SystemExit => e
-      end
+  def nachos(*argv)
+    capture_stdout do
+      Nachos::CLI.start(argv)
     end
   end
 
+  context "with valid github setup" do
+    before { stub_github_info }
+
+    it "info returns version info" do
+      nachos('info').should include("You are running Nachos #{Nachos::Version}")
+    end
+
+    it "watched lists watched repos" do
+      repos = [stub(:owner => "defunkt", :name => "github", :description => "github cli")]
+      Nachos::Main.any_instance.stubs(:watched).returns(repos)
+      nachos('watched').should == "defunkt/github - github cli\n"
+    end
+  end
 end
