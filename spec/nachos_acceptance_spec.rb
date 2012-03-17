@@ -1,12 +1,12 @@
 require 'spec_helper'
 require 'bahia'
 
-Bahia.project_directory = File.expand_path(File.join(File.dirname(__FILE__), *%w[..]))
-Bahia.command_method = 'nachos'
-Bahia.command = 'nachos'
-Rspec.configure {|c| c.include Bahia }
+#Bahia.project_directory = File.expand_path(File.join(File.dirname(__FILE__), *%w[..]))
+#Bahia.command_method = 'nachos'
+#Bahia.command = 'nachos'
+#Rspec.configure {|c| c.include Bahia }
 
-describe "Nachos acceptance" do
+describe "Nachos acceptance", :pending => true do
 
   context "without github config" do
     context "with no commands" do

@@ -11,7 +11,7 @@ class Nachos::CLI < Boson::Runner
     super
   end
 
-  def self.dry_run
+  def self.setup_dry_run
     option :dry_run, :type => :boolean, :desc => "If specified, the converter will just print the commands and not actually execute them"
   end
 
@@ -20,7 +20,7 @@ class Nachos::CLI < Boson::Runner
     say main.info
   end
 
-  dry_run
+  setup_dry_run
   desc "Display your watched repos on Github"
   def watched(options={})
     @options = options
@@ -29,7 +29,7 @@ class Nachos::CLI < Boson::Runner
     end
   end
 
-  dry_run
+  setup_dry_run
   desc "Sync repositories"
   def sync(options={})
     @options = options
@@ -37,7 +37,7 @@ class Nachos::CLI < Boson::Runner
     main.sync
   end
 
-  dry_run
+  setup_dry_run
   desc "Create default config (if it doesn't exist)"
   def config(options={})
     @options = options
