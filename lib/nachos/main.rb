@@ -24,7 +24,6 @@ Current configuration: #{config.display_config}]
     end
 
     def chdir(dir)
-      #shell.say_status :inside, dir
       if dry_run?
         yield
       else
