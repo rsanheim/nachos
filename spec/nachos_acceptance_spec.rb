@@ -14,7 +14,6 @@ describe "Nachos acceptance" do
       end
 
       it "display github message" do
-        pending "depends on changes to boson to allow overriding help message"
         nachos
         process.should be_success
         stdout.should include("Your github info is not setup")
