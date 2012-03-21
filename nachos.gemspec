@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   ## Leave these as is they will be modified for you by the rake gemspec task.
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
-  s.name              = 'NAME'
-  s.version           = '0.0'
-  s.date              = '2010-01-01'
-  s.rubyforge_project = 'NAME'
+  s.name              = 'nachos'
+  s.version           = '0.0.6'
+  s.date              = '2012-03-21'
+  s.rubyforge_project = 'nachos'
 
   s.summary     = "Nachos syncs your github world to your local machine"
   s.description = s.summary
@@ -33,7 +33,14 @@ Gem::Specification.new do |s|
   ## contents of your Git repository via the gemspec task. DO NOT REMOVE
   ## THE MANIFEST COMMENTS, they are used as delimiters by the task.
   # = MANIFEST =
-  s.files = %w[]
+  s.files = %w[
+    Gemfile
+    Gemfile.lock
+    README.md
+    Rakefile
+    lib/nachos.rb
+    nachos.gemspec
+  ]
   # = MANIFEST =
 
   ## Test files will be grabbed from the file list. Make sure the path glob
