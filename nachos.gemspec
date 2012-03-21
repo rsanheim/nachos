@@ -1,5 +1,3 @@
-## You can find comprehensive Gem::Specification documentation, at
-## http://docs.rubygems.org/read/chapter/20
 Gem::Specification.new do |s|
   s.specification_version = 2 if s.respond_to? :specification_version=
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -24,8 +22,10 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.extra_rdoc_files = %w[README.md LICENSE]
 
-  #s.add_dependency('DEPNAME', [">= 1.1.0", "< 2.0.0"])
+  s.add_dependency 'boson'
+  s.add_dependency 'octokit', '1.0.0'
 
+  s.add_development_dependency 'bahia'
   s.add_development_dependency 'rspec', '~> 2.9'
   s.add_development_dependency 'rake', '~> 0.9.2'
 
