@@ -1,4 +1,3 @@
-require 'boson'
 require 'boson/runner'
 
 class Nachos::CLI < Boson::Runner
@@ -13,6 +12,18 @@ class Nachos::CLI < Boson::Runner
 
   def self.setup_dry_run
     option :dry_run, :type => :boolean, :desc => "If specified, the converter will just print the commands and not actually execute them"
+  end
+
+  # extend default help
+  def self.display_help
+    super
+    # TODO: actually check github info
+    puts "Your github info is not setup"
+  end
+
+  # extend command help
+  def self.display_command_help(cmd)
+    super
   end
 
   desc "Displays current setup for Nachos"
