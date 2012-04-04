@@ -2,6 +2,7 @@ require 'bahia'
 
 describe "Nachos acceptance" do
   include Bahia
+
   context "getting help" do
     it "provides usage" do
       nachos
@@ -12,9 +13,9 @@ describe "Nachos acceptance" do
 
   context "info" do
     it "succeeds" do
-
       nachos "info"
     end
+
     it "tells me my github username and watched repos" do
       nachos "info"
       pending "fake out github stuff, etc"
