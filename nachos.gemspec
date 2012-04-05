@@ -22,10 +22,10 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.extra_rdoc_files = %w[README.md LICENSE]
 
-  s.add_dependency 'boson'
-  s.add_dependency 'octokit', '1.0.0'
+  s.add_dependency 'boson', '1.2.1'
+  s.add_dependency 'octokit', '1.0.1'
 
-  s.add_development_dependency 'bahia'
+  s.add_development_dependency 'bahia', '0.7.0'
   s.add_development_dependency 'mocha'
   s.add_development_dependency 'rspec', '~> 2.9'
   s.add_development_dependency 'rake', '~> 0.9.2'
