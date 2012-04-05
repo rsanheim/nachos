@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'octokit', '1.0.0'
 
   s.add_development_dependency 'bahia'
+  s.add_development_dependency 'mocha'
   s.add_development_dependency 'rspec', '~> 2.9'
   s.add_development_dependency 'rake', '~> 0.9.2'
 
