@@ -1,5 +1,7 @@
 require 'rspec'
 require 'nachos'
 
-# TODO: bring in mocha
+RSpec.configure do |c|
+  c.mock_with :mocha
+end
 

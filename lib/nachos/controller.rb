@@ -1,4 +1,5 @@
 require 'octokit'
+require 'yaml'
 class Nachos::Controller
 
   def self.execute(command, options = {})
@@ -28,6 +29,7 @@ class Nachos::Controller
     "You are currently watching #{client.watched.size} repos."
   end
 
+  # client = Octokit::Client.new(:login => "me", :oauth_token => "oauth2token")
   def client
     client = Octokit::Client.new(@config[:username])
   end
