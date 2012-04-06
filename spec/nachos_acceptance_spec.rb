@@ -2,12 +2,6 @@ require 'spec_helper'
 require 'tmpdir'
 
 describe "Nachos acceptance" do
-  def configure(options = {})
-    File.open("#{@fake_home}/.nachos.yml", "w") do |f|
-      f.write(options.to_yaml)
-    end
-  end
-
   around do |example| 
     @fake_home = Dir.mktmpdir
     original_home, ENV["HOME"] = ENV["HOME"], @fake_home

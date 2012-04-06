@@ -2,6 +2,7 @@ require 'rspec'
 require 'vcr'
 require 'nachos'
 require 'log_buddy'
+require 'support/helpers'
 
 RSpec.configure do |c|
   c.mock_with :mocha
@@ -11,6 +12,7 @@ RSpec.configure do |c|
   c.color_enabled = true
   c.treat_symbols_as_metadata_keys_with_true_values = true
   c.extend VCR::RSpec::Macros
+  c.include Support::Helpers
 end
 
 VCR.configure do |c|
@@ -19,20 +21,3 @@ VCR.configure do |c|
   c.default_cassette_options = { :record => :none }
 end
 
-def capture(&block)
-  original_stdout = $stdout
-  original_stderr = $stderr
-
-  $stdout = fake_stdout = StringIO.new
-  $stderr = fake_stderr = StringIO.new
-  exception = nil
-  begin
-    yield
-  rescue Exception => e
-    exception = e
-  ensure
-    $stdout = original_stdout
-    $stderr = original_stderr
-  end
-  [fake_stdout.string, fake_stderr.string, exception]
-end
