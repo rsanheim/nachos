@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'trollop', '1.16.2'
   s.add_dependency 'octokit', '1.0.1'
 
-  #s.add_development_dependency 'bahia', '0.7.0'
+  s.add_development_dependency 'rdoc'
   s.add_development_dependency 'mocha'
   s.add_development_dependency 'log_buddy'
   s.add_development_dependency 'rspec', '~> 2.9'
