@@ -1,0 +1,113 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://sushi.com/nigiri/sake.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: 
+    headers:
+      date:
+      - Fri, 06 Apr 2012 18:45:33 GMT
+      server:
+      - Apache
+      x-pingback:
+      - http://sushi.com/xmlrpc.php
+      expires:
+      - Wed, 11 Jan 1984 05:00:00 GMT
+      cache-control:
+      - no-cache, must-revalidate, max-age=0
+      pragma:
+      - no-cache
+      last-modified:
+      - Fri, 06 Apr 2012 18:45:34 GMT
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+      content-type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ! "\r\n<!DOCTYPE html>\r\n<html dir=\"ltr\" lang=\"en-US\">\r\n\r\n<head>\r\n
+        \ <meta charset=\"UTF-8\" />\r\n\r\n  <title>Nothing found for  Nigiri Sake
+        Json</title>\r\n\r\n    <link rel=\"shortcut icon\" href=\"http://sushi.com/wp-content/themes/mystique/favicon.ico\"
+        />\r\n  <link rel=\"pingback\" href=\"http://sushi.com/xmlrpc.php\" />\r\n\r\n
+        \ <!--[if lte IE 7]>\r\n  <link rel=\"stylesheet\" href=\"http://sushi.com/wp-content/themes/mystique/css/ie.css\"
+        type=\"text/css\" media=\"screen\" />\r\n  <![endif]-->\r\n\r\n  <link rel=\"alternate\"
+        type=\"application/rss+xml\" title=\"Sushi.com &raquo; Feed\" href=\"http://sushi.com/feed/\"
+        />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Sushi.com
+        &raquo; Comments Feed\" href=\"http://sushi.com/comments/feed/\" />\n\n<link
+        rel=\"stylesheet\" href=\"http://sushi.com/wp-content/uploads/mystique-32322246b4a3da549b7798e2a8e96796.css\"
+        type=\"text/css\" media=\"all\" />\n<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?ver=3.3.1'></script>\n<script
+        type='text/javascript'>\n/* <![CDATA[ */\nvar cl_settings = {\"name\":\"author\",\"url\":\"url\",\"comment\":\"comment\",\"email\":\"email\",\"infopanel\":\"on\",\"default_on\":\"on\",\"default_on_admin\":\"on\",\"cl_version\":\"2.90.9.7\",\"images\":\"http:\\/\\/sushi.com\\/wp-content\\/plugins\\/commentluv\\/images\\/\",\"api_url\":\"http:\\/\\/sushi.com\\/wp-admin\\/admin-ajax.php\",\"_fetch\":\"7909ccdced\",\"_info\":\"26a79944ab\",\"infoback\":\"white\",\"infotext\":\"black\",\"template_insert\":\"\",\"logged_in\":\"\",\"refer\":\"\",\"no_url_message\":\"Please
+        enter a URL and then click the CommentLuv checkbox if you want to add your
+        last blog post\",\"no_http_message\":\"Please use http:\\/\\/ in front of
+        your url\",\"no_url_logged_in_message\":\"You need to visit your profile in
+        the dashboard and update your details with your site URL\",\"no_info_message\":\"No
+        info was available or an error occured\"};\n/* ]]> */\n</script>\n<script
+        type='text/javascript' src='http://sushi.com/wp-content/plugins/commentluv/js/commentluv.js?ver=3.3.1'></script>\n<link
+        rel=\"EditURI\" type=\"application/rsd+xml\" title=\"RSD\" href=\"http://sushi.com/xmlrpc.php?rsd\"
+        />\n<link rel=\"wlwmanifest\" type=\"application/wlwmanifest+xml\" href=\"http://sushi.com/wp-includes/wlwmanifest.xml\"
+        /> \n<meta name=\"generator\" content=\"WordPress 3.3.1, ATOM 2.0 r6\" />\n\n<!--
+        All in One SEO Pack 1.6.14.1 by Michael Torbert of Semper Fi Web Design[92,130]
+        -->\n<!-- /all in one seo pack -->\n<style>\n#page{background-image:url(\"http://sushi.com/wp-content/uploads/sushibg2.jpg\");}\n.media
+        .icon{background: transparent url(\"http://sushi.com/wp-content/themes/mystique/mods/SocialMediaIcons/defaults.png\")
+        no-repeat center top;}\n#page-ext{\r\n  background:transparent url(../images/sushibg.jpg)
+        fixed repeat-x center bottom;\r\n}\n</style>\n\r\n</head>\r\n<body class=\"error404
+        no-js no-fx c1 fixed browser-unknown\">\r\n\r\n  <script> document.body.className
+        = document.body.className.replace('no-js',''); </script>\r\n    <div class=\"nav
+        nav-top\">\r\n    <div class=\"page-content\">\r\n      <ul id=\"menu-our-online-sushi-store\"
+        class=\"menu slide-down clear-block\"><li id=\"menu-item-27\" class=\"menu-shopouronlinestoreherethousandsofproductsrelatedtosushiallqualityallatthebestpricespossibleguaranteedshopouronlinestorenowwehaveeverythingyourlookingfor\"><a
+        title=\"Shop our online store here! Thousands of prod\" href=\"http://www.sushi.com/shop.php\">Shop
+        our online store here!  Thousands of products related to sushi, all quality
+        all at the best prices possible, GUARANTEED!  Shop our online store now, we
+        have everything your looking for!</a></li>\n</ul>    </div>\r\n  </div>\r\n
+        \ \r\n  <!-- page -->\r\n  <div id=\"page\">\r\n\r\n    \r\n    <div id=\"page-ext\">\r\n\r\n
+        \     <!-- header -->\r\n      <div id=\"header\">\r\n        <div class=\"page-content\">\r\n
+        \         <div id=\"site-title\" class=\"clear-block\">\r\n            <div
+        id=\"logo\" class=\"size-m\"><a href=\"http://sushi.com/\"><img src=\"http://sushi.com/wp-content/uploads/sushiheader1.png\"
+        title=\"Sushi.com\"  alt=\"Sushi.com\" /></a></div>            <div class=\"headline\">Sushi
+        .com is The Sushi Authority &#8211; The one stop sushi solution!  Stay tuned
+        we are in development. To inquire about purchasing this domain name contact
+        todd@sushi.com</div>          </div>\r\n        </div>\r\n\r\n        \r\n
+        \       <div class=\"shadow-left page-content\">\r\n          <div class=\"shadow-right
+        nav nav-main\" role=\"navigation\">\r\n            <ul id=\"menu-our-online-sushi-store-1\"
+        class=\"menu slide-down fadeThis clear-block\"><li class=\"menu-shopouronlinestoreherethousandsofproductsrelatedtosushiallqualityallatthebestpricespossibleguaranteedshopouronlinestorenowwehaveeverythingyourlookingfor\"><a
+        title=\"Shop our online store here! Thousands of prod\" href=\"http://www.sushi.com/shop.php\">Shop
+        our online store here!  Thousands of products related to sushi, all quality
+        all at the best prices possible, GUARANTEED!  Shop our online store now, we
+        have everything your looking for!<span class=\"p\"></span></a></li>\n</ul>
+        \         </div>\r\n                  </div>\r\n\r\n      </div>\r\n      <!--
+        /header -->\r\n\r\n      \r\n      <!-- main -->\r\n      <div id=\"main\"
+        class=\"page-content\">\r\n        <div id=\"main-ext\" class=\"clear-block\">\r\n\r\n
+        \ <!-- main content: primary + sidebar(s) -->\r\n  <div id=\"mask-3\" class=\"clear-block\">\r\n
+        \   <div id=\"mask-2\">\r\n      <div id=\"mask-1\">\r\n\r\n        <!-- primary
+        content -->\r\n        <div id=\"primary-content\">\r\n          <div class=\"blocks
+        clear-block\">\r\n\r\n            <h1 class=\"title\">404</h1>\r\n\r\n            \r\n
+        \           <p>The requested page was not found.</p>\r\n\r\n            \r\n
+        \         </div>\r\n        </div>\r\n        <!-- /primary content -->\r\n\r\n
+        \     </div>\r\n    </div>\r\n  </div>\r\n  <!-- /main content -->\r\n\r\n\r\n
+        \        </div>\r\n       </div>\r\n       <!-- /main -->\r\n\r\n       \r\n
+        \      \r\n       <!-- footer -->\r\n       <div class=\"shadow-left page-content\">\r\n
+        \        <div class=\"shadow-right\">\r\n\r\n           <div id=\"footer\">\r\n\r\n
+        \            \r\n             <div id=\"copyright\">\r\n               <p>
+        <span id=\"site-generator\">Powered by <a class=\"wp\" href=\"http://wordpress.org/\">WordPress</a>
+        and Mystique theme by <a class=\"digitalnature\" href=\"http://digitalnature.eu/\">digitalnature</a></span>
+        | <a class=\"rss\" rel=\"feed\" href=\"http://sushi.com/feed/\">RSS Feeds</a>\n
+        </p>               <script type='text/javascript'>\n/* <![CDATA[ */\nvar atom_config
+        = {\"blog_url\":\"http:\\/\\/sushi.com\\/\",\"context\":\"404\",\"search_query\":\"\",\"options\":\"effects|lightbox|generate_thumbs\"};\n/*
+        ]]> */\n</script>\n<script type='text/javascript' src='http://sushi.com/wp-content/themes/mystique/js/jquery.atom.min.js?ver=3.2.3'></script>\n
+        \            </div>\r\n           </div>\r\n\r\n         </div>\r\n       </div>\r\n
+        \      <!-- /footer -->\r\n\r\n       <a class=\"go-top\" href=\"#page\">Go
+        to Top</a>\r\n\r\n     </div>\r\n    <!-- /page-ext -->\r\n\r\n\r\n    <!--
+        32 queries in 1.81 seconds (16.94M) -->\r\n\r\n  </div>\r\n  <!-- page -->\r\n\r\n
+        \ \r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Fri, 06 Apr 2012 18:45:36 GMT
+recorded_with: VCR 2.0.1

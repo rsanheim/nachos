@@ -3,10 +3,7 @@ require 'boson/runner'
 module Nachos
   class Runner < Boson::Runner
     def info(options = {})
-      Controller.execute(:info, options)
-    end
-
-    def something
+      puts Controller.execute(:info, options)
     end
   end
 end

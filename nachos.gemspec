@@ -25,10 +25,15 @@ Gem::Specification.new do |s|
   s.add_dependency 'boson', '1.2.1'
   s.add_dependency 'octokit', '1.0.1'
 
-  s.add_development_dependency 'bahia', '0.7.0'
+  #s.add_development_dependency 'bahia', '0.7.0'
   s.add_development_dependency 'mocha'
   s.add_development_dependency 'rspec', '~> 2.9'
   s.add_development_dependency 'rake', '~> 0.9.2'
+  s.add_development_dependency 'guard'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'growl'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
 
   ## Leave this section as-is. It will be automatically generated from the
   ## contents of your Git repository via the gemspec task. DO NOT REMOVE

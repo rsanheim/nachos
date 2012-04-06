@@ -1,19 +1,44 @@
-require 'bahia'
+require 'spec_helper'
+require 'tmpdir'
 
 describe "Nachos acceptance" do
-  include Bahia
-
   context "getting help" do
-    it "provides usage" do
-      nachos
-      stdout.should =~ /Usage: nachos \[OPTIONS\]/
+    fit "provides usage" do
+      stdout, stderr = capture { Nachos::Runner.start([]) }
+      stdout.should match(/Usage: nachos \[OPTIONS\]/)
     end
+
     it "tells me about the require github setup"
   end
 
-  context "info" do
+  context "info", :vcr do
+    use_vcr_cassette "info", :record => :new_episodes
+
+    context "no github configuration supplied" do
+      it "fails" do
+        Nachos::Runner.start
+        #nachos "info"
+        process.should_not be_success
+        stderr.should match "You must configure nachos"
+      end
+    end
+
+    def configure(options = {})
+      dir = Dir.mktmpdir
+      ENV["HOME"] = dir
+
+      File.open("#{dir}/.nachos.yml", "w") do |f|
+        f.write( { :username => "johndoe" }.to_yaml )
+      end
+    end
+
     it "succeeds" do
+      configure :username => "johndoe"
       nachos "info"
+      puts stderr
+      puts stdout
+      process.should be_success
+      stdout.should match /Nachos #{Nachos::Version} as johndoe/
     end
 
     it "tells me my github username and watched repos" do
