@@ -2,10 +2,23 @@ require 'spec_helper'
 require 'tmpdir'
 
 describe "Nachos acceptance" do
+  def configure(options = {})
+    File.open("#{@fake_home}/.nachos.yml", "w") do |f|
+      f.write(options.to_yaml)
+    end
+  end
+
+  around do |example| 
+    @fake_home = Dir.mktmpdir
+    original_home, ENV["HOME"] = ENV["HOME"], @fake_home
+    example.run
+    ENV["HOME"] = original_home
+  end
+
   context "getting help" do
-    fit "provides usage" do
+    it "provides usage" do
       stdout, stderr = capture { Nachos::Runner.start([]) }
-      stdout.should match(/Usage: nachos \[OPTIONS\]/)
+      stdout.should match(/Usage: nachos COMMAND/)
     end
 
     it "tells me about the require github setup"
@@ -16,39 +29,22 @@ describe "Nachos acceptance" do
 
     context "no github configuration supplied" do
       it "fails" do
-        Nachos::Runner.start
-        #nachos "info"
-        process.should_not be_success
+        stdout, stderr, error = capture do
+          Nachos::Runner.start ["info"]
+        end
+        error.should be_instance_of(SystemExit)
         stderr.should match "You must configure nachos"
       end
     end
 
-    def configure(options = {})
-      dir = Dir.mktmpdir
-      ENV["HOME"] = dir
-
-      File.open("#{dir}/.nachos.yml", "w") do |f|
-        f.write( { :username => "johndoe" }.to_yaml )
-      end
-    end
-
-    it "succeeds" do
+    it "shows basic info" do
       configure :username => "johndoe"
-      nachos "info"
-      puts stderr
-      puts stdout
-      process.should be_success
-      stdout.should match /Nachos #{Nachos::Version} as johndoe/
-    end
-
-    it "tells me my github username and watched repos" do
-      nachos "info"
-      pending "fake out github stuff, etc"
-      process.should be_success
-      stdout.should == <<EOL
-You are using nachos as 'johndoe'.
-You have 22 watched repos, and 10 private repos that are being synced
-EOL
+      stdout, stderr, error = capture do
+        Nachos::Runner.start ["info"]
+      end
+      error.should be_nil
+      stdout.should match /Nachos version: #{Nachos::Version}/
+      stdout.should match /You watch 2 repos/
     end
   end
 end

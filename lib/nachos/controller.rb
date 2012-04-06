@@ -12,7 +12,7 @@ class Nachos::Controller
   end
 
   def self.nachos_config_path
-    @nachos_config_path ||= Pathname("~/.nachos.yml").expand_path
+    @nachos_config_path = Pathname("~/.nachos.yml").expand_path
   end
 
   def initialize(options = {})
@@ -34,7 +34,7 @@ class Nachos::Controller
     out =<<EOL
 Nachos version: #{Nachos::Version}
 Current user: #{@config[:user]}
-You are currently watching #{client.watched.size} repos.
+You watch #{client.watched.size} repos
 EOL
   end
 
