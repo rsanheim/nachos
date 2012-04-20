@@ -12,14 +12,16 @@ module Nachos
 
       cmd = args.shift # get the subcommand
       case cmd
-      when "info"
-        Nachos::Controller.execute "info"
+      when nil, "--help"
+        puts "Usage: nachos COMMAND"
+      when "info", "init"
+        Nachos::Controller.execute cmd
       when "copy"
         Trollop::options do
           opt :double, "Copy twice for safety's sake"
         end
       else
-        puts "Usage: nachos COMMAND"
+        abort "nachos: #{cmd} is not a nachos command.  See nachos --help"
       end
     end
   end

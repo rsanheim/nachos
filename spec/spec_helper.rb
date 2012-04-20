@@ -3,6 +3,7 @@ require 'vcr'
 require 'nachos'
 require 'log_buddy'
 require 'support/helpers'
+require 'support/fake_home_helper'
 
 RSpec.configure do |c|
   c.mock_with :mocha
