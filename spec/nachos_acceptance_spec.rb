@@ -53,13 +53,14 @@ describe "Nachos acceptance" do
       end
     end
 
-    it "shows basic info" do
+    fit "shows basic info" do
       configure :username => "johndoe"
       stdout, stderr, error = capture do
         Nachos::Runner.start ["info"]
       end
       error.should be_nil
       stdout.should match /Nachos version: #{Nachos::Version}/
+      stdout.should match /Github username: johndoe/
       stdout.should match /You watch 2 repos/
     end
   end

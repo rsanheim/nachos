@@ -2,7 +2,7 @@ require 'octokit'
 require 'yaml'
 
 class Nachos::Controller
-  attr_reader :config
+  attr_reader :config, :user
 
   def self.execute(command, options = {})
     out = new(options).send(command)
@@ -17,6 +17,7 @@ class Nachos::Controller
 
   def initialize(options = {})
     @options = options
+    @user = Nachos::User.new
   end
 
   def config
@@ -49,7 +50,7 @@ EOL
   def info
     out =<<EOL
 Nachos version: #{Nachos::Version}
-Current user: #{config[:user]}
+Github username: #{user.github_username}
 You watch #{client.watched.size} repos
 EOL
   end
