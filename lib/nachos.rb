@@ -1,3 +1,4 @@
+require 'pathname'
 module Nachos
   VERSION = '0.0.6'
   Version = VERSION
