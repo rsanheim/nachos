@@ -1,9 +1,11 @@
 module Support
   module Helpers
     def configure(options = {})
-      File.open("#{@fake_home}/.nachos.yml", "w") do |f|
-        f.write(options.to_yaml)
+      git_config_override = Pathname(@fake_home).join(".fake_git_config")
+      git_config_override.open("w") do |f|
+        f << "[github]\n  user = #{options[:user]}"
       end
+      $git_config_override = "-f #{git_config_override}"
     end
 
     def capture(&block)

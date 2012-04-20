@@ -30,7 +30,7 @@ class Nachos::Controller
   end
 
   def load_config
-    raise Nachos::NoConfigurationFound unless nachos_config_path.exist?
+    return unless nachos_config_path.exist?
     YAML.load_file(nachos_config_path)
   end
 
@@ -51,13 +51,8 @@ EOL
     out =<<EOL
 Nachos version: #{Nachos::Version}
 Github username: #{user.github_username}
-You watch #{client.watched.size} repos
+You watch #{user.watched_repos.size} repos
 EOL
-  end
-
-  # client = Octokit::Client.new(:login => "me", :oauth_token => "oauth2token")
-  def client
-    client = Octokit::Client.new(:login => config[:username])
   end
 
 end

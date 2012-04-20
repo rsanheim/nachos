@@ -4,6 +4,7 @@ module Nachos
   Version = VERSION
   autoload :Runner, 'nachos/runner'
   autoload :Controller, 'nachos/controller'
+  autoload :Github, 'nachos/github'
   autoload :User, 'nachos/user'
   class NoConfigurationFound < RuntimeError; end
 end

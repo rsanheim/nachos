@@ -13,7 +13,7 @@ describe "Nachos acceptance" do
   # Run a command and fail fast on any errors
   def run!(args)
     stdout, stderr, error = run args
-    error.should be_nil
+    raise error if error
     [stdout, stderr, error]
   end
 
@@ -43,22 +43,18 @@ describe "Nachos acceptance" do
   context "info", :vcr do
     use_vcr_cassette "info", :record => :new_episodes
 
-    context "no github configuration supplied" do
+    context "no github configuration exists" do
       it "fails and tells the user to configure things" do
-        stdout, stderr, error = capture do
-          Nachos::Runner.start ["info"]
-        end
+        configure :user => nil
+        stdout, stderr, error = run "info"
         error.should be_instance_of(SystemExit)
-        stderr.should match "You must configure nachos"
+        stderr.should match "No GitHub user set."
       end
     end
 
-    fit "shows basic info" do
-      configure :username => "johndoe"
-      stdout, stderr, error = capture do
-        Nachos::Runner.start ["info"]
-      end
-      error.should be_nil
+    it "shows basic info" do
+      configure :user => "johndoe"
+      stdout, stderr, error = run! "info"
       stdout.should match /Nachos version: #{Nachos::Version}/
       stdout.should match /Github username: johndoe/
       stdout.should match /You watch 2 repos/
