@@ -15,7 +15,7 @@ module Nachos
     # Either returns the GitHub user as set by git-config(1) or aborts
     # with an error message.
     def github_username(fatal = true)
-      if user = GIT_CONFIG[git_config_call]
+      if user = GIT_CONFIG[git_config_call("github.user")]
         user
       elsif fatal
         abort("** No GitHub user set. See #{LGHCONF}")
@@ -23,8 +23,8 @@ module Nachos
     end
 
     # This is dirty but it lets us override the git config file for testing
-    def git_config_call
-      ["config", $git_config_override, "github.user"].compact.join(" ")
+    def git_config_call(param)
+      ["config", $git_config_override, param].compact.join(" ")
     end
 
     #def github_summary
