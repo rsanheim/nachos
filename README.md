@@ -20,3 +20,12 @@ Then, let it fly:
 
     nachos sync
     # TODO example output
+
+To change configuration, run the following:
+
+    nachos setup 
+
+This will write out a config file with some default values you can
+override to ~/.nachos.yml.  Take a look at that file for the defaults
+that are used normally.
+
