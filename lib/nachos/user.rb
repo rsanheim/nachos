@@ -10,6 +10,14 @@ module Nachos
       Pathname(ENV["HOME"]).join("src")
     end
 
+    def config
+      Config.new
+    end
+
+    def init_config
+      config.init
+    end
+
     def sync
       count = 0
       client.watched.each do |repo|

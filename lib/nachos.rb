@@ -5,6 +5,7 @@ module Nachos
   autoload :Runner, 'nachos/runner'
   autoload :Controller, 'nachos/controller'
   autoload :Github, 'nachos/github'
+  autoload :Config, 'nachos/config'
   autoload :User, 'nachos/user'
   class NoConfigurationFound < RuntimeError; end
 end
