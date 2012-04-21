@@ -22,11 +22,10 @@ describe "Nachos acceptance" do
       stdout, stderr, error = run "some-unknown-command"
       error.should_not be_nil
     end
-
   end
 
   context "getting help" do
-    it "provides usage" do
+    it "provides usage for empty commands" do
       stdout, stderr, error = run! nil
       stdout.should match(/Usage: nachos COMMAND/)
     end
@@ -36,8 +35,6 @@ describe "Nachos acceptance" do
       error.should be_nil
       stdout.should match(/Usage: nachos COMMAND/)
     end
-
-    it "tells me about the required github setup"
   end
 
   context "info", :vcr do
@@ -58,6 +55,19 @@ describe "Nachos acceptance" do
       stdout.should match /Nachos version: #{Nachos::Version}/
       stdout.should match /Github username: johndoe/
       stdout.should match /You watch 2 repos/
+    end
+  end
+
+  context "sync", :vcr do
+    use_vcr_cassette "info", :record => :new_episodes
+
+    it "syncs all watched repos locally" do
+      configure :user => "johndoe"
+      fake_home.join("src").mkdir
+      stdout, stderr, error = run! "sync"
+      stdout.should match /synced 0 repos/
+      #TODO needs net access
+      #fake_home.join("src").children.size.should == 2
     end
   end
 

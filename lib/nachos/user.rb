@@ -6,7 +6,24 @@ module Nachos
       client.watched
     end
 
+    def repo_root
+      Pathname(ENV["HOME"]).join("src")
+    end
+
+    def sync
+      count = 0
+      client.watched.each do |repo|
+        dir = [repo.owner.login, repo.name].join("-")
+        target = repo_root.join(dir)
+        cmd = "git clone #{repo.clone_url} #{target.to_s}"
+        success = system cmd
+        count += 1 if success
+      end
+      "Successfully synced #{count} repos"
+    end
+
     # client = Octokit::Client.new(:login => "me", :oauth_token => "oauth2token")
+    # client = Octokit::Client.new(:login => "me", :password => "sekret")
     def client
       client = Octokit::Client.new(:login => github_username)
     end

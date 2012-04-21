@@ -43,6 +43,10 @@ Example config generated at #{nachos_config_path}:
 EOL
   end
 
+  def sync
+    user.sync
+  end
+
   def example_config
     { "username" => ENV["USER"] }.to_yaml
   end

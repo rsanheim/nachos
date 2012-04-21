@@ -14,7 +14,7 @@ module Nachos
       case cmd
       when nil, "--help"
         puts "Usage: nachos COMMAND"
-      when "info", "init"
+      when "info", "init", "sync"
         Nachos::Controller.execute cmd
       when "copy"
         Trollop::options do
