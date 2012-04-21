@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+ruby -Ilib -s bin/nachos $1
