@@ -22,6 +22,10 @@ module Nachos
       end
     end
 
+    def github_password
+      GIT_CONFIG[git_config_call("github.password")]
+    end
+
     # This is dirty but it lets us override the git config file for testing
     def git_config_call(param)
       ["config", $git_config_override, param].compact.join(" ")

@@ -25,7 +25,9 @@ module Nachos
     # client = Octokit::Client.new(:login => "me", :oauth_token => "oauth2token")
     # client = Octokit::Client.new(:login => "me", :password => "sekret")
     def client
-      client = Octokit::Client.new(:login => github_username)
+      auth = { :login => github_username }
+      auth[:password] = github_password if github_password
+      client = Octokit::Client.new(auth)
     end
   end
 end
