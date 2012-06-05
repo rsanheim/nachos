@@ -35,4 +35,3 @@ Note on Patches/Pull Requests
 Copyright
 --------------------------------
 Copyright (c) 2012 Rob Sanheim. See LICENSE for details.
-
