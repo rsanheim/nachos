@@ -30,6 +30,10 @@ module Nachos
       "Successfully synced #{count} repos"
     end
 
+    def organizations
+      client.organizations
+    end
+
     # client = Octokit::Client.new(:login => "me", :oauth_token => "oauth2token")
     # client = Octokit::Client.new(:login => "me", :password => "sekret")
     def client
