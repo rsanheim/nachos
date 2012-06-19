@@ -34,6 +34,12 @@ module Nachos
       client.organizations
     end
 
+    def organization_repos
+      repos = organizations.inject([]) do |sum, org|
+        sum << client.org_repos(org.login)
+      end
+    end
+
     # client = Octokit::Client.new(:login => "me", :oauth_token => "oauth2token")
     # client = Octokit::Client.new(:login => "me", :password => "sekret")
     def client

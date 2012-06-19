@@ -1,4 +1,7 @@
 require 'pathname'
+require 'yaml'
+require 'octokit'
+
 module Nachos
   VERSION = '0.0.6'
   Version = VERSION

@@ -1,6 +1,3 @@
-require 'octokit'
-require 'yaml'
-
 class Nachos::Controller
   attr_reader :config, :user
 
@@ -32,10 +29,6 @@ You watch #{user.watched_repos.size} repos
 You belong to #{user.organizations.size} organizations: #{user.organizations.map(&:login).sort}
 github reops = 
 EOL
-  end
-
-  def github_repos
-    user.organizations.find { |o| o.login == "github" }.org_repos
   end
 
 end

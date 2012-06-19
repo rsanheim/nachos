@@ -1,2 +1,2 @@
 #!/bin/sh
-irb -Ilib -rnachos
+irb -Ilib -Iscript -rnachos -rconsole_helpers
