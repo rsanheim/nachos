@@ -61,7 +61,7 @@ describe "Nachos acceptance" do
   context "sync", :vcr do
     use_vcr_cassette "info", :record => :new_episodes
 
-    it "syncs all watched repos locally" do
+    pending "syncs all watched repos locally" do
       configure :user => "johndoe"
       fake_home.join("src").mkdir
       stdout, stderr, error = run! "sync"

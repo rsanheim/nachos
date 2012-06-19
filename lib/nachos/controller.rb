@@ -27,7 +27,6 @@ Nachos version: #{Nachos::Version}
 Github username: #{user.github_username}
 You watch #{user.watched_repos.size} repos
 You belong to #{user.organizations.size} organizations: #{user.organizations.map(&:login).sort}
-github reops = 
 EOL
   end
 
