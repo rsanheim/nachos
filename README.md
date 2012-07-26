@@ -29,3 +29,4 @@ This will write out a config file with some default values you can
 override to ~/.nachos.yml.  Take a look at that file for the defaults
 that are used normally.
 
+
