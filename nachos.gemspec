@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = %w[README.md LICENSE]
 
   s.add_dependency 'trollop', '1.16.2'
-  s.add_dependency 'octokit', '1.7.0'
+  s.add_dependency 'octokit', '1.10.0'
 
   s.add_development_dependency 'rdoc'
   s.add_development_dependency 'mocha'
