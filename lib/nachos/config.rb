@@ -26,7 +26,7 @@ module Nachos
 
     def init
       return "You already have a config file" if config_path.exist?
-      config_path.open("w") { default_config }
+      config_path.open("w") { |f| f << default_config.to_yaml }
 <<EOL
 Example config generated at #{config_path}:
 #{config_path.read}

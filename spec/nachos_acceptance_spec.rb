@@ -72,12 +72,14 @@ describe "Nachos acceptance" do
   end
 
   context "init" do
-    it "writes out an example config file" do
+    fit "writes out an example config file" do
       stdout, stderr, error = capture do
         Nachos::Runner.start ["init"]
       end
       error.should be_nil
-      Pathname(@fake_home).join(".nachos.yml").exist?.should be_true
+      config = Pathname(@fake_home).join(".nachos.yml")
+      config.should exist
+      config.read.should_not be_empty
     end
   end
 end
