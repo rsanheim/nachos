@@ -1,6 +1,7 @@
 module Nachos
   class User
     include Github
+    attr_reader :config
 
     def watched_repos
       client.watched
@@ -11,7 +12,7 @@ module Nachos
     end
 
     def config
-      Config.new
+      @config ||= Config.new
     end
 
     def init_config
@@ -20,11 +21,9 @@ module Nachos
 
     def sync
       count = 0
-      client.watched.each do |repo|
-        dir = [repo.owner.login, repo.name].join("-")
-        target = repo_root.join(dir)
-        cmd = "git clone #{repo.clone_url} #{target.to_s}"
-        success = system cmd
+      client.watched.each do |octokit_repo|
+        repo = Nachos::Repo.new(octokit_repo)
+        success = repo.sync
         count += 1 if success
       end
       "Successfully synced #{count} repos"

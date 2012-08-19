@@ -10,5 +10,6 @@ module Nachos
   autoload :Github, 'nachos/github'
   autoload :Config, 'nachos/config'
   autoload :User, 'nachos/user'
+  autoload :Repo, 'nachos/repo'
   class NoConfigurationFound < RuntimeError; end
 end
