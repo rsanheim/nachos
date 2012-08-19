@@ -72,7 +72,7 @@ describe "Nachos acceptance" do
   end
 
   context "init" do
-    fit "writes out an example config file" do
+    it "writes out an example config file" do
       stdout, stderr, error = capture do
         Nachos::Runner.start ["init"]
       end

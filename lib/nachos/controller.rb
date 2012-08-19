@@ -30,4 +30,11 @@ You belong to #{user.organizations.size} organizations: #{user.organizations.map
 EOL
   end
 
+  def watched
+    out =<<EOL
+You are watching the following repos:
+#{user.watched}
+EOL
+  end
+
 end
