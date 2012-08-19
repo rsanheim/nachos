@@ -1,7 +1,7 @@
 require 'trollop'
 module Nachos
   class Runner
-    SUB_COMMANDS = %w(info init sync watched)
+    SUB_COMMANDS = %w(info init sync watched help).sort.freeze
 
     def self.start(args = ARGV)
       global_opts = Trollop::options do
@@ -12,8 +12,8 @@ module Nachos
 
       cmd = args.shift # get the subcommand
       case cmd
-      when nil, "--help"
-        puts "Usage: nachos COMMAND"
+      when nil, "help", "--help"
+        puts "Usage: nachos COMMAND\nValid commands are #{SUB_COMMANDS.join(", ")}"
       when *SUB_COMMANDS
         Nachos::Controller.execute cmd
       when "copy"
