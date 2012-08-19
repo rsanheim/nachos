@@ -1,7 +1,7 @@
 require 'trollop'
 module Nachos
   class Runner
-    SUB_COMMANDS = %w(info init sync watched help).sort.freeze
+    SUB_COMMANDS = %w(info init sync watched version help).sort.freeze
 
     def self.start(args = ARGV)
       global_opts = Trollop::options do

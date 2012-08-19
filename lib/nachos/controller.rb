@@ -37,4 +37,8 @@ You are watching the following repos:
 EOL
   end
 
+  def version
+    "Nachos version: #{Nachos::Version}"
+  end
+
 end
