@@ -26,7 +26,7 @@ class Nachos::Controller
 Nachos version: #{Nachos::Version}
 Github username: #{user.github_username}
 You watch #{user.watched_repos.size} repos
-You belong to #{user.organizations.size} organizations: #{user.organizations.map(&:login).sort}
+You belong to #{user.organizations.size} #{"organization".pluralize(user.organizations.size)}: #{user.organizations.map(&:login).sort}
 EOL
   end
 

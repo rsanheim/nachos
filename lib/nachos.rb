@@ -1,6 +1,7 @@
 require 'pathname'
 require 'yaml'
 require 'octokit'
+require 'active_support/core_ext/string'
 
 module Nachos
   VERSION = '0.0.6'
