@@ -4,7 +4,7 @@ require 'octokit'
 require 'active_support/core_ext/string'
 
 module Nachos
-  VERSION = '0.0.6'
+  VERSION = '0.0.7'
   Version = VERSION
   autoload :Runner, 'nachos/runner'
   autoload :Controller, 'nachos/controller'

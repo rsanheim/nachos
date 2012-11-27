@@ -3,7 +3,9 @@ module Support
     def configure(options = {})
       git_config_override = Pathname(@fake_home).join(".fake_git_config")
       git_config_override.open("w") do |f|
-        f << "[github]\n  user = #{options[:user]}"
+        f << "[github]\n"
+        f << "  user = #{options[:user]}\n" if options[:user]
+        f << "  password = #{options[:password]}\n" if options[:password]
       end
       $git_config_override = "-f #{git_config_override}"
     end
