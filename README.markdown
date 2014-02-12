@@ -1,6 +1,9 @@
 Nachos
 ================================
 
+**This is not maintained and not useful.  Use [preflight](https://github.com/rsanheim/preflight). instead**
+
+
 Because everyone loves Nachos!
 
 Sync your watched repos with Github.  Manage them.  Never leave net access again without all the codes you care about, local.
